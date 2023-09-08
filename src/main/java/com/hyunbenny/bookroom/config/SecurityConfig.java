@@ -33,7 +33,7 @@ public class SecurityConfig {
 
                 .authorizeRequests()
                 .antMatchers("/", "/login", "/join").permitAll()
-                .antMatchers("/api/user/v1/**").permitAll()
+                .antMatchers("/user/**").authenticated()
                 .anyRequest().authenticated()
 
                 .and()

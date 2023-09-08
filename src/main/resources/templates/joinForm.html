@@ -12,11 +12,15 @@
     [ 회원가입 ]
 </header>
 <section class="col-md-12">
+
     <form id="join" name="join" enctype="multipart/form-data" th:action="@{/join}" th:method="POST" th:object="${joinRequest}">
         <div class="container">
             <article>아이디</article>
             <article class="join_input"><input type="text" id="userId" name="userId" th:field="*{userId}" placeholder="아이디 입력"></article>
             <div class="field-error" th:errors="*{userId}">아이디 값 오류</div>
+            <div th:if="${#fields.hasGlobalErrors()}">
+                <p class="field-error" th:each="err : ${#fields.globalErrors()}" th:text="${err}"/>
+            </div>
 
             <article>비밀번호</article>
             <article class="join_input"><input type="password" id="password" name="password" placeholder="암호 입력"></article>
@@ -44,10 +48,9 @@
 
         </div>
         <br/>
-        <button type="submit" class="btn btn-primary" id="btn_join">회원가입</button>
-        <button type="button" class="go_back"><a href="javascript:history.back(-1)">뒤로</a></button>
-
+        <button type="submit" class="btn btn-primary" id="btn_join">작성 완료</button>
     </form>
+        <button type="button" class="go_back"><a th:href="@{/}">홈</a></button>
 </section>
 
 <script type="text/javascript">
@@ -56,8 +59,11 @@
         var pwd1 = f1.password.value;
         var pwd2 = f1.passwordConfirm.value;
         if (pwd1 != pwd2) {
-            document.getElementById('checkPwd').style.color="red";
+            document.getElementById('checkPwd').style.color = "red";
             document.getElementById('checkPwd').innerHTML = "암호가 일치하지 않습니다.";
+        } else {
+            document.getElementById('checkPwd').style.color = "blue";
+            document.getElementById('checkPwd').innerHTML = "암호가 일치합니다.";
         }
     }
 

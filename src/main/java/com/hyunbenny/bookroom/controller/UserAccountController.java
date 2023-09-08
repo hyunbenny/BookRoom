@@ -1,12 +1,13 @@
 package com.hyunbenny.bookroom.controller;
 
+import com.hyunbenny.bookroom.auth.CustomUserDetails;
 import com.hyunbenny.bookroom.dto.UserAccountDto;
 import com.hyunbenny.bookroom.dto.request.JoinRequest;
 import com.hyunbenny.bookroom.exception.UserAlreadyExistException;
 import com.hyunbenny.bookroom.service.UserAccountService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,7 +15,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Slf4j
 @Controller
@@ -25,7 +25,6 @@ public class UserAccountController {
 
     @GetMapping("/join")
     public String joinForm(JoinRequest joinRequest, Model model) {
-        model.addAttribute("joinRequest", joinRequest);
         return "joinForm";
     }
 
@@ -41,6 +40,7 @@ public class UserAccountController {
             try {
                 userAccountService.join(UserAccountDto.of(joinRequest.userId(), joinRequest.name(), joinRequest.nickname(), joinRequest.password(), joinRequest.email(), joinRequest.phone()));
             } catch (UserAlreadyExistException ex) {
+                bindingResult.reject("userId", "해당 아이디가 이미 존재합니다.");
                 model.addAttribute("joinRequest", joinRequest);
                 return "joinForm";
             }
@@ -60,5 +60,4 @@ public class UserAccountController {
 
         return "loginForm";
     }
-
 }
