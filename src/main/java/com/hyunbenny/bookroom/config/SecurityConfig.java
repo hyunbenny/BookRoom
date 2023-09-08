@@ -40,7 +40,7 @@ public class SecurityConfig {
                 .formLogin()
                 .loginPage("/login").permitAll()
                 .usernameParameter("userId")
-                .successForwardUrl("/")
+                .defaultSuccessUrl("/")
                 .failureHandler(customLoginFailureHandler)
 
                 .and()
