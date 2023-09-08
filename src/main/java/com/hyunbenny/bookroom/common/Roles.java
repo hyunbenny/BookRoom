@@ -1,4 +1,4 @@
-package com.hyunbenny.bookroom;
+package com.hyunbenny.bookroom.common;
 
 public enum Roles {
     USER("ROLE_USER"),

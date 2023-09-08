@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta contentType="application/json; charset=UTF-8">
+    <title>로그인</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/join.css'/>
+    <script src="/js/jquery-3.6.0.min.js"></script>
+</head>
+<body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
+<header>
+    로그인
+</header>
+<section>
+    <form th:method="post" th:action="@{/login}"}>
+        <div class="container">
+            <div th:if="${param.error}" class="form-group">
+                <span th:text="${exception}" class="alert alert-danger">잘못된 아이디나 비밀번호입니다.</span>
+            </div>
+
+            <article>아이디</article>
+            <article class="login_input"><input type="text" id="username" name="userId" placeholder="아이디 입력"></article>
+            <article>비밀번호</article>
+            <article class="login_input"><input type="password" id="password" name="password" placeholder="비밀번호 입력"></article>
+        </div>
+        <br>
+        <button type="submit" id="login_btn">로그인</button>
+    </form>
+    <button type="button" class="join_btn"><a th:href="@{/join}">회원가입</a></button>
+    <button type="button" class="go_back"><a th:href="@{/}">홈</a></button>
+</section>
+<script type="text/javascript">
+    window.history.forward();
+    function noBack(){window.history.forward();}
+</script>
+
+</body>
+</html>

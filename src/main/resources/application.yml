@@ -4,3 +4,27 @@ spring:
     url: jdbc:mysql://localhost:3306/bookroom
     username: hbcho
     password: 1234
+
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create
+    open-in-view: true # OSIV
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+      hibernate.default_batch_fetch_size: 100
+
+
+logging:
+  level:
+    com.hyunbenny.bookroom: debug
+    org.springframework.web.servlet: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    
+# 정적 자원 재부팅 없이 적용을 위한 설정
+  devtools:
+    livereload:
+      enabled: true
+  thymeleaf:
+    cache: false    
