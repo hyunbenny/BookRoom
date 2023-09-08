@@ -5,10 +5,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 public record JoinRequest(
-//        @NotBlank(message = "아이디는 필수값입니다.")
         @Pattern(regexp = "^[a-zA-Z0-9]{5,20}$", message = "아이디는 5~20자 이내의 영어와 숫자만 가능합니다.")
         String userId,
-//        @Pattern(regexp = "^[가-힣]{2,10}|[a-zA-Z]{2,10}\\s[a-zA-Z]{2,10}$", message = "이름은 한글은 2~10자, 영어는 2~20자 이내만 가능합니다.")
         @Pattern(regexp = "^[가-힣]{2,6}", message = "이름은 2~6자 이내의 한글만 가능합니다.")
         String name,
         @Pattern(regexp = "^[a-zA-Z가-힣0-9]{2,20}$", message = "닉네임은 2~20자 이내의 한글, 영어와 숫자만 가능합니다.")
