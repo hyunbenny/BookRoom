@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>메시지 창</title>
+</head>
+<body>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var message = [[${message}]]
+    alert(message);
+
+    if ([[${url}]].startsWith('redirect')) {
+        let index = [[${url}]].indexOf('/');
+        location.href = [[${url}]].substring(index);
+    }else{
+        location.replace([[${url}]]);
+    }
+    /*]]>*/
+</script>
+</body>
+</html>

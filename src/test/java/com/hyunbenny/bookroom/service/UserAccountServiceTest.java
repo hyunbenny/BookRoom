@@ -184,11 +184,13 @@ class UserAccountServiceTest {
     void given_userId_when_requestDeleteUser_then_modifyDeletedAtOfUserAccount() {
         // given
         String userId = "testUserId";
+        String password = "password";
         UserAccount userAccountEntity = createUserAccountEntity();
         given(userAccountRepository.findById(any())).willReturn(Optional.of(userAccountEntity));
+        given(passwordEncoder.matches(any(), any())).willReturn(true);
 
         // when then
-        assertDoesNotThrow(() -> userAccountService.deleteUserAccount(userId));
+        assertDoesNotThrow(() -> userAccountService.deleteUserAccount(userId, password));
         assertNotNull(userAccountEntity.getDeletedAt());
     }
 
