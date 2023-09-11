@@ -45,7 +45,7 @@ class JoinRequestTest {
         String userId = "testUser90";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -73,7 +73,7 @@ class JoinRequestTest {
         String userId = "abcde";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -101,7 +101,7 @@ class JoinRequestTest {
         String userId = "1234567890123456789";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -129,7 +129,7 @@ class JoinRequestTest {
         String userId = "";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -158,7 +158,7 @@ class JoinRequestTest {
         String userId = " ";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -187,7 +187,7 @@ class JoinRequestTest {
         String userId = "테스트유저아이디";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -216,7 +216,7 @@ class JoinRequestTest {
         String userId = "abcd";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -245,7 +245,7 @@ class JoinRequestTest {
         String userId = "abcdefghijklmnopqrstuvwxyz";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -275,7 +275,7 @@ class JoinRequestTest {
         String userId = "helloWorld!";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -305,7 +305,7 @@ class JoinRequestTest {
         String userId = "helloWorld@";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -335,7 +335,7 @@ class JoinRequestTest {
         String userId = "helloWorld#";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -365,7 +365,7 @@ class JoinRequestTest {
         String userId = "helloWorld$";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -395,7 +395,7 @@ class JoinRequestTest {
         String userId = "helloWorld%";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -425,7 +425,7 @@ class JoinRequestTest {
         String userId = "helloWorld^";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -455,7 +455,7 @@ class JoinRequestTest {
         String userId = "helloWorld&";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -485,7 +485,7 @@ class JoinRequestTest {
         String userId = "helloWorld*";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -515,7 +515,7 @@ class JoinRequestTest {
         String userId = "helloWorld(";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -545,7 +545,7 @@ class JoinRequestTest {
         String userId = "helloWorld)";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -575,7 +575,7 @@ class JoinRequestTest {
         String userId = "helloWorld-";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -605,7 +605,7 @@ class JoinRequestTest {
         String userId = "helloWorld_";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -635,7 +635,7 @@ class JoinRequestTest {
         String userId = "helloWorld+";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -665,7 +665,7 @@ class JoinRequestTest {
         String userId = "helloWorld=";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -695,7 +695,7 @@ class JoinRequestTest {
         String userId = "helloWorld<";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -725,7 +725,7 @@ class JoinRequestTest {
         String userId = "helloWorld>";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -755,7 +755,7 @@ class JoinRequestTest {
         String userId = "helloWorld?";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -785,7 +785,7 @@ class JoinRequestTest {
         String userId = "helloWorld,";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -815,7 +815,7 @@ class JoinRequestTest {
         String userId = "helloWorld.";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -845,7 +845,7 @@ class JoinRequestTest {
         String userId = "helloWorld/";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
@@ -875,7 +875,7 @@ class JoinRequestTest {
         String userId = "hello World";
         JoinRequest joinRequest = JoinRequest.of(
                 userId,
-                "name",
+                "김테스터",
                 "nickname",
                 "Password12!@!@",
                 "test@email.com",
