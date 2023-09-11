@@ -42,7 +42,7 @@ class UserAccountServiceTest {
         UserAccountDto userAccountDto = createUserAccountDto();
         UserAccount userAccountEntity = createUserAccountEntity();
         // when
-        when(userAccountRepository.findById("testUserId")).thenReturn(Optional.empty());
+        when(userAccountRepository.findByIdWithoutDeletedAtCondition("testUserId")).thenReturn(Optional.empty());
         when(passwordEncoder.encode(any(String.class))).thenReturn("encodedPassword");
         when(userAccountRepository.save(any())).thenReturn(userAccountEntity);
 
@@ -56,8 +56,9 @@ class UserAccountServiceTest {
     @Test
     void given_alreadyExistUserId_when_requestJoin_then_returnException() {
         // given
+        String userId = "testUserId";
         UserAccountDto userAccountDto = createUserAccountDto();
-        given(userAccountRepository.findById(any())).willReturn(Optional.of(createUserAccountEntity()));
+        given(userAccountRepository.findByIdWithoutDeletedAtCondition(userId)).willReturn(Optional.of(createUserAccountEntity()));
 
         // when & then
         UserAlreadyExistException exception = assertThrows(UserAlreadyExistException.class, () -> userAccountService.join(userAccountDto));

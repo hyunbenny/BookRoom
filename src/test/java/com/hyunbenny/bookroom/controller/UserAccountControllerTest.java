@@ -62,8 +62,9 @@ class UserAccountControllerTest {
         mvc.perform(post("/join")
                         .content(formDataEncoder.encode(joinRequest))
                 )
-                .andExpect(view().name("redirect:/login"))
-                .andExpect(redirectedUrl("/login"));
+                .andExpect(view().name("message"))
+                .andExpect(model().attribute("message", "성공적으로 회원가입하였습니다."))
+                .andExpect(model().attribute("url", "/login"));
     }
 
     @DisplayName("[POST] join: 회원가입 요청시, 이미 존재하는 아이디로 요청하면 다시 회원가입 페이지로 이동한다.")
