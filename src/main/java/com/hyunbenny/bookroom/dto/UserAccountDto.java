@@ -40,6 +40,9 @@ public record UserAccountDto(
                 );
     }
 
+    public UserAccount toEntity() {
+        return UserAccount.of(userId, name, nickname, password, email, phone);
+    }
     public UserAccount toEntity(String encodedPassword) {
         return UserAccount.of(userId, name, nickname, encodedPassword, email, phone);
     }
