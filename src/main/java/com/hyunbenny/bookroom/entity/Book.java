@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -15,7 +16,7 @@ import java.time.LocalDateTime;
         @Index(columnList = "author"),
         @Index(columnList = "publisher"),
         @Index(columnList = "isbn")
-})
+}, uniqueConstraints = @UniqueConstraint(name = "uniq_book_0001", columnNames ="isbn"))
 @NoArgsConstructor
 public class Book implements Serializable {
     @Id
@@ -30,14 +31,20 @@ public class Book implements Serializable {
     @Column(nullable = false, length = 50)
     private String publisher;
     @Column(nullable = false)
-    private LocalDateTime pubDate;
+    private LocalDate pubDate;
+    @Column(nullable = false)
+    private String imgUrl;
 
-    @Builder
-    public Book(String title, String author, String isbn, String publisher, LocalDateTime pubDate) {
+    private Book(String title, String author, String isbn, String publisher, LocalDate pubDate, String imgUrl) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
         this.publisher = publisher;
         this.pubDate = pubDate;
+        this.imgUrl = imgUrl;
+    }
+
+    public static Book of(String title, String author, String isbn, String publisher, LocalDate pubDate, String imgUrl) {
+        return new Book(title, author, isbn, publisher, pubDate, imgUrl);
     }
 }
