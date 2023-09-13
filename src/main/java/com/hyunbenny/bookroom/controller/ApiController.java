@@ -24,9 +24,9 @@ public class ApiController {
         // page 2 -> start = 11
         // page 3 -> start = 21
         int start = page * 10 - 9;
-        NaverBookApiResponse response = (NaverBookApiResponse) bookSearchClient.getBookInfo(title, isbn, start).getBody();
+        NaverBookApiResponse bookInfo = (NaverBookApiResponse) bookSearchClient.getBookInfo(title, isbn, start);
 
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok(bookInfo);
     }
 
 }

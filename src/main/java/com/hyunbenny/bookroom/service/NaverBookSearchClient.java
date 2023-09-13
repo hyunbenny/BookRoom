@@ -15,7 +15,7 @@ import java.nio.charset.StandardCharsets;
 
 @Slf4j
 @Component
-public class NaverBookSearchClient implements BookSearchClient{
+public class NaverBookSearchClient <T> implements BookSearchClient <T> {
 
     private static RestTemplate restTemplate = new RestTemplate();
 
@@ -37,7 +37,7 @@ public class NaverBookSearchClient implements BookSearchClient{
      */
 
     @Override
-    public ResponseEntity getBookInfo(String title, String isbn, int start) {
+    public T getBookInfo(String title, String isbn, int start) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("X-Naver-Client-Id", XNaverClientId);
         headers.add("X-Naver-Client-Secret", XNaverClientSecret);
@@ -54,8 +54,8 @@ public class NaverBookSearchClient implements BookSearchClient{
         log.info("statusCode: {}", responseEntity.getStatusCode());
         log.info("total: {}", responseEntity.getBody().total());
         log.info("body - item: {}", responseEntity.getBody().items());
-        
-        return responseEntity;
+
+        return (T) responseEntity.getBody();
     }
 
     private String createQueryParam(String title, String isbn, int start) {
