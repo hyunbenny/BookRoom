@@ -2,7 +2,6 @@ package com.hyunbenny.bookroom.service;
 
 import com.hyunbenny.bookroom.dto.BookDto;
 import com.hyunbenny.bookroom.entity.Book;
-import com.hyunbenny.bookroom.exception.book.BookAlreadyExistException;
 import com.hyunbenny.bookroom.exception.book.BookNotFoundException;
 import com.hyunbenny.bookroom.repository.BookRepository;
 import org.junit.jupiter.api.Assertions;
@@ -20,6 +19,7 @@ import java.util.Optional;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.then;
 
 @DisplayName("책 비지니스 로직")
 @ExtendWith(MockitoExtension.class)
@@ -49,16 +49,19 @@ public class BookServiceTest {
         assertThat(savedBook.isbn()).isEqualTo(bookDto.isbn());
     }
 
-    @DisplayName("책 등록 실패: 이미 등록된 책이 존재하면 예외를 반환한다.")
+    @DisplayName("책 등록 시, 이미 등록된 책이 존재하면 조회 결과를 반환한다.")
     @Test
-    void given_bookDtoWithExistIsbn_when_requestSave_then_returnException() {
+    void given_bookDtoWithExistIsbn_when_requestSave_then_returnBookDto() {
         // given
         BookDto bookDto = createBookDto();
         Book book = createBook();
         given(bookRepository.findByIsbn(bookDto.isbn())).willReturn(Optional.of(book));
 
-        // when & then
-        Assertions.assertThrows(BookAlreadyExistException.class, () -> bookService.saveBook(bookDto));
+        // when
+        BookDto findBook = bookService.saveBook(bookDto);
+
+        // then
+        assertThat(findBook.isbn()).isEqualTo(book.getIsbn());
     }
 
     @DisplayName("책 조회 성공: title")
