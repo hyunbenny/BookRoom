@@ -2,7 +2,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/bookroom
-    username: hbcho
+    username: root
     password: 1234
 
   jpa:
@@ -27,4 +27,11 @@ logging:
     livereload:
       enabled: true
   thymeleaf:
-    cache: false    
+    cache: false
+
+# Naver Api Infos
+naver:
+  book:
+    url:
+    client-id:
+    client-secret:
